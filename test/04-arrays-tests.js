@@ -220,8 +220,8 @@ describe('04-arrays-tasks', function() {
     it.optional('insertItem should insert an item at specified position', function () {
         [
             {
-                arr:      [ 1,    3, 4, 5 ],
-                item:          2,
+                arr:      [ 1, 3, 4, 5 ],
+                item:     2,
                 index:    1,
                 expected: [ 1, 2, 3, 4, 5 ]
             },{

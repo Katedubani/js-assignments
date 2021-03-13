@@ -155,7 +155,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  return arr.slice(0, index).concat(item, arr.slice(index, arr.length))
+   return arr.splice(index, 0, item)
 }
 
 /**
@@ -209,7 +209,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+   return arr.join('\n')
 }
 
 /**
@@ -258,7 +258,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(function(item, index) {return (index%2 != 0)})
 }
 
 
@@ -277,8 +277,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
-}
+   return arr.map(function(item, index) {let num = index + 1; return item * num})}
 
 
 /** 
@@ -295,7 +294,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   return arr.reverse().slice(0, 3)
 }
  
  
@@ -313,7 +312,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(function(item){return item > 0 && typeof(item) === 'number'}).length
 }
  
 /** 
@@ -346,7 +345,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   return arr.length > 0 ? arr.reduce(function(a,b){return(a+b)}):0
 }
  
 /** 
@@ -380,7 +379,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   arr.filter(function(arr_item, item) {return arr_item === item}).length
 }
 
 /**
@@ -395,7 +394,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.join(',')
 }
 
 
