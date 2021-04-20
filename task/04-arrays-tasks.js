@@ -312,7 +312,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   return arr.filter(function(item){return item > 0 && typeof(item) === 'number'}).length
+   return arr.filter(function(item){return item > 0}).length
 }
  
 /** 
@@ -345,7 +345,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   return arr.length > 0 ? arr.reduce(function(a,b){return(a+b)}):0
+  const reducer = (sum, value) => sum + value;
+  if (arr.length > 0) return arr.reduce(reducer);
+  else return 0
 }
  
 /** 
@@ -361,7 +363,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(x => typeof x !== 'number').length;
 }
 
 /**
@@ -379,7 +381,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   arr.filter(function(arr_item, item) {return arr_item === item}).length
+   return arr.filter(x => x == item).length
 }
 
 /**
